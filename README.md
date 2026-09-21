@@ -1,3 +1,10 @@
+Membros do Grupo
+Arthur Silva de Jesus RGM-45034133
+Marcos Henrique Mota De Souza RGM-45134201
+Luiz Henrique da Silva conceição RGM-44648111
+Gabriel Silva Diniz RGM-45618496
+Guilherme Barboza da Silva RGM-46450734
+
 # Projeto de Modelagem de Processos e Banco de Dados — Alhena Color
 
 ## 1. Introdução

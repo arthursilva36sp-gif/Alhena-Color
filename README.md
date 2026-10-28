@@ -10,614 +10,566 @@ Gabriel Silva Diniz RGM-45618496
 
 Guilherme Barboza da Silva RGM-46450734
 
-# Projeto de Modelagem de Processos e Banco de Dados — Alhena Color
+Projeto de Banco de Dados — Alhena Color Anodização
 
-## 1. Introdução
+Entrega 2 — Modelagem, Implementação e Análise de Dados
 
-Este projeto tem como objetivo realizar o levantamento e a modelagem dos principais processos de negócio da empresa Alhena Color, com foco na organização das informações relacionadas à produção, peças, modelos, lotes, processos, funcionários, acabamento e controle de qualidade.
+Projeto acadêmico desenvolvido para a Alhena Color Anodização.
 
-A partir do levantamento realizado, foi desenvolvida uma proposta de modelagem conceitual de banco de dados, representada por meio de um Diagrama Entidade-Relacionamento (DER), além de um fluxograma representando as principais etapas do processo produtivo.
+⸻
 
-### Objetivos
+1. Levantamento e Modelagem do Sistema
 
-- Identificar os principais processos realizados pela organização;
-- Levantar os requisitos necessários para o sistema;
-- Identificar entidades, atributos e relacionamentos;
-- Organizar as informações do processo produtivo;
-- Desenvolver um modelo conceitual de banco de dados;
-- Representar os processos por meio de fluxograma;
-- Desenvolver um DER consistente e escalável.
+1.1 Descrição da organização e levantamento de requisitos
 
-### Escopo
+1.1.1 Identificação da organização
 
-O projeto contempla principalmente os processos relacionados ao recebimento e preparação das peças, polimento, enganchamento, anodização, controle de qualidade e expedição.
+* Empresa: Alhena Color Anodização
+* Segmento: Tratamento e acabamento de perfis de alumínio.
+* Ano de fundação: 2002.
+* Quantidade de funcionários: 40.
+* Endereço: Rua Urutaguá, 147 — Vila Independência, São Paulo — SP, CEP 04223-090.
+* E-mail: contato@alhenacolor.com.br
+* Telefone: (11) 2068-6691.
+* WhatsApp: (11) 99286-8636.
+* Site: https://www.alhenacolor.com.br/
 
----
+A Alhena Color Anodização atua no segmento de tratamento e acabamento de perfis de alumínio, oferecendo diferentes opções de acabamento, como Alto Brilho, Dourado Brilho, Dourado Fosco e Inox.
 
-# 2. Caracterização da Organização
+A empresa possui laboratório próprio e realiza atividades relacionadas ao recebimento, preparação, tratamento, controle de qualidade e expedição dos materiais.
 
-## 2.1 Identificação
+1.1.2 Objetivo do sistema
 
-**Nome:** Alhena Color Anodização
+O objetivo do projeto é desenvolver uma proposta de banco de dados relacional para organizar e acompanhar as informações relacionadas aos pedidos e aos processos produtivos da Alhena Color.
 
-**Área de atuação:** Anodização, tratamento e acabamento de superfícies de perfis de alumínio.
+O sistema pretende centralizar os registros, facilitar consultas, acompanhar o andamento das peças e permitir o controle das etapas realizadas, dos funcionários responsáveis, da qualidade e da expedição.
 
-**Fundação:** 2002.
+1.1.3 Processos organizacionais identificados
 
-**Endereço:** R. Urutaguá, 147 - Vila Independência, São Paulo - SP, CEP 04223-090.
+Com base nas informações levantadas sobre as atividades da empresa, foram identificados os seguintes processos:
 
-**E-mail:** contato@alhenacolor.com.br
+1. Recebimento: entrada dos materiais e identificação dos pedidos recebidos.
+2. Polimento: preparação das peças para as etapas seguintes.
+3. Enganchamento: preparação e organização das peças para o tratamento.
+4. Anodização: realização do processo de tratamento e acabamento do alumínio.
+5. Controle de qualidade: verificação das condições das peças após o tratamento.
+6. Expedição: organização e encaminhamento das peças aprovadas.
 
-**Telefone:** (11) 2068-6691
+Esses processos são utilizados como referência para a estruturação do banco de dados.
 
-**WhatsApp:** (11) 99286-8636
+1.1.4 Necessidades do sistema
 
-**Site:** https://www.alhenacolor.com.br/
+O sistema proposto deverá permitir:
 
-A Alhena Color atua no segmento de anodização e tratamento de superfície de perfis de alumínio. Segundo as informações disponibilizadas pela própria empresa, sua história começou em 2002 e sua atuação é voltada à qualidade, inovação e desenvolvimento de acabamentos para alumínio.
+* Cadastro e consulta de clientes.
+* Registro e acompanhamento de pedidos.
+* Organização dos modelos e acabamentos solicitados.
+* Controle dos lotes e das peças.
+* Registro das etapas produtivas.
+* Identificação dos funcionários responsáveis pelas atividades.
+* Registro das inspeções de qualidade.
+* Controle das peças aprovadas e reprovadas.
+* Registro das expedições.
+* Consulta ao histórico de produção.
 
-A empresa oferece diferentes tipos de acabamento, incluindo Alto Brilho, Dourado Brilho, Dourado Fosco e Inox, entre outros.
+1.1.5 Levantamento por entrevista e observação
 
-## 2.2 Contexto da organização
+O levantamento das informações foi utilizado para compreender a organização, suas atividades e os processos que precisam ser representados no banco de dados.
 
-A Alhena Color atua no segmento de tratamentos e acabamentos de superfície de alumínio.
+As informações institucionais e os processos descritos neste documento foram utilizados como base para a modelagem.
 
-O processo produtivo envolve diferentes etapas para que as peças recebam o tratamento e acabamento desejados.
+Não foram incluídos depoimentos, nomes de entrevistados ou resultados de observações específicas sem registro comprovado.
 
-Durante o levantamento realizado para este projeto, foram identificadas etapas como polimento, enganchamento, anodização, controle de qualidade e expedição.
+1.1.6 Escopo do projeto
 
-A empresa também informa em seu site que possui laboratório próprio e trabalha com processos voltados à qualidade, resistência, durabilidade e estética dos produtos.
+O projeto contempla a modelagem e a implementação de uma estrutura de banco de dados voltada ao acompanhamento dos pedidos, lotes, peças, processos produtivos, funcionários, controle de qualidade e expedição.
 
-## 2.3 Problemas e necessidades identificadas
+Não fazem parte do escopo principal o controle financeiro, a folha de pagamento, a gestão de recursos humanos e o gerenciamento comercial completo da organização.
 
-Durante o levantamento dos processos, identificou-se a necessidade de organizar e centralizar informações relacionadas a:
+1.1.7 Requisitos funcionais
 
-- Modelos de peças;
-- Peças produzidas;
-- Lotes de produção;
-- Processos realizados;
-- Funcionários responsáveis pelas atividades;
-- Etapas de acabamento;
-- Controle de qualidade;
-- Expedição.
+Código	Descrição
+RF01	Permitir o cadastro de clientes.
+RF02	Permitir o cadastro e a consulta de pedidos.
+RF03	Permitir o registro dos itens de cada pedido.
+RF04	Permitir o cadastro de modelos de peças.
+RF05	Permitir o cadastro dos tipos de acabamento.
+RF06	Permitir o cadastro e o acompanhamento de lotes.
+RF07	Permitir o cadastro e a identificação das peças.
+RF08	Permitir o cadastro dos processos produtivos e suas etapas.
+RF09	Registrar a execução das etapas produtivas.
+RF10	Identificar os funcionários responsáveis pelas atividades.
+RF11	Registrar os resultados do controle de qualidade.
+RF12	Identificar peças aprovadas, reprovadas e encaminhadas para retrabalho.
+RF13	Registrar as expedições e as peças encaminhadas.
+RF14	Permitir consultas e relatórios sobre o histórico dos processos.
 
-A organização dessas informações pode facilitar o acompanhamento da produção, o controle dos lotes e a consulta do histórico dos processos.
+1.1.8 Requisitos não funcionais
 
-## 2.4 Justificativa da escolha da organização
+Código	Descrição
+RNF01	O banco de dados deverá utilizar o SGBD MySQL.
+RNF02	Os dados deverão possuir integridade referencial.
+RNF03	O acesso às informações deverá considerar critérios de segurança.
+RNF04	A estrutura deverá permitir consultas de maneira organizada.
+RNF05	O modelo deverá permitir futuras ampliações.
+RNF06	O banco deverá evitar duplicidade desnecessária de informações.
 
-A Alhena Color foi escolhida para o desenvolvimento do projeto por apresentar processos produtivos que podem ser analisados e representados por meio de uma modelagem de banco de dados.
+1.1.9 Regras de negócio
 
-A existência de diferentes etapas de produção permite analisar relacionamentos entre peças, modelos, lotes, funcionários e processos.
+Código	Regra
+RN01	Cada pedido deve estar relacionado a um cliente.
+RN02	Um pedido pode possuir vários itens.
+RN03	Cada item de pedido deve identificar o modelo e o acabamento solicitado.
+RN04	Um item de pedido pode originar um ou mais lotes.
+RN05	Um lote pode conter várias peças.
+RN06	Cada peça deve estar vinculada a um único lote.
+RN07	As peças devem passar pelas etapas produtivas necessárias.
+RN08	As atividades produtivas devem possuir registros de execução.
+RN09	Os registros de execução devem identificar o funcionário responsável.
+RN10	As peças devem passar pelo controle de qualidade após o tratamento.
+RN11	Peças reprovadas podem ser encaminhadas para retrabalho e nova avaliação.
+RN12	Somente peças aprovadas podem ser liberadas para expedição.
 
-Além disso, o segmento de anodização e tratamento de superfície de alumínio apresenta diferentes informações que podem ser organizadas de maneira estruturada em um sistema.
+1.1.10 Modelo conceitual revisado
 
-## 2.5 Evidências do levantamento
+O modelo conceitual foi revisado para representar de maneira organizada os relacionamentos entre clientes, pedidos, itens, modelos, acabamentos, lotes, peças, processos, funcionários, qualidade e expedição.
 
-As informações utilizadas neste projeto foram obtidas por meio da observação dos processos da organização e de informações públicas disponibilizadas pela própria empresa em seu site oficial.
+Os ajustes realizados buscam evitar relacionamentos redundantes e garantir que as informações necessárias possam ser registradas e consultadas.
 
-**Endereço:** R. Urutaguá, 147 - Vila Independência, São Paulo - SP, CEP 04223-090.
+O diagrama conceitual revisado será apresentado em arquivo separado, utilizando a notação do brModelo.
 
-**E-mail:** contato@alhenacolor.com.br
+1.1.11 Correções realizadas em relação à Entrega 1
 
-**Telefone:** (11) 2068-6691
+Elemento	Ajuste realizado	Justificativa
+Pedido	Inclusão de ITEM_PEDIDO	Organizar os diferentes itens de um pedido.
+Execução produtiva	Inclusão de EXECUCAO_ETAPA	Registrar as etapas realizadas e seus responsáveis.
+Polimento, enganchamento e anodização	Representação por etapas do processo	Evitar duplicidade de estruturas de execução.
+Controle de qualidade	Relacionamento direto com PECA	Permitir o acompanhamento individual das peças.
+Expedição	Inclusão de ITEM_EXPEDICAO	Identificar as peças encaminhadas em cada expedição.
+Dispositivo	Retirada do modelo lógico	Não faz parte dos recursos considerados no processo modelado.
 
-**WhatsApp:** (11) 99286-8636
+⸻
 
-**Site oficial:** https://www.alhenacolor.com.br/
+1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 
-A empresa informa em seu site que foi fundada em 2002, possui mais de duas décadas de atuação e é especializada em anodização e tratamentos de superfície de perfis de alumínio.
+A conversão do modelo conceitual para o modelo lógico foi realizada com base nas entidades identificadas na Entrega 1 e nos requisitos levantados para o sistema de gerenciamento dos processos produtivos da Alhena Color.
 
----
+O modelo lógico foi estruturado para organizar as informações de clientes, pedidos, modelos, acabamentos, lotes, peças, processos produtivos, funcionários, controle de qualidade e expedição.
 
-# 3. Processos de Negócio
+Entidades e tabelas do modelo lógico
 
-## 3.1 Principais processos identificados
+O modelo lógico é composto pelas seguintes 14 tabelas:
 
-Os principais processos observados são:
+1. CLIENTE
+2. PEDIDO
+3. ITEM_PEDIDO
+4. MODELO
+5. ACABAMENTO
+6. LOTE
+7. PECA
+8. PROCESSO
+9. ETAPA_PROCESSO
+10. EXECUCAO_ETAPA
+11. FUNCIONARIO
+12. CONTROLE_QUALIDADE
+13. EXPEDICAO
+14. ITEM_EXPEDICAO
 
-1. Recebimento das peças;
-2. Polimento;
-3. Enganchamento;
-4. Anodização;
-5. Controle de qualidade;
-6. Expedição.
+Conversão das entidades
 
-## 3.2 Descrição dos processos
+Cada entidade do modelo conceitual foi convertida em uma tabela relacional. Seus atributos foram transformados em colunas, e os identificadores foram definidos como chaves primárias (PK).
 
-### Recebimento
+Os relacionamentos foram estabelecidos por meio de chaves estrangeiras (FK), permitindo conectar as informações e manter a integridade referencial do banco de dados.
 
-As peças são recebidas para início do processo produtivo e encaminhadas para as etapas necessárias de preparação e acabamento.
+As atividades de polimento, enganchamento e anodização são representadas como etapas dos processos produtivos, permitindo registrar sua execução e acompanhar o histórico de cada peça.
 
-### Polimento
+Principais relacionamentos do modelo
 
-No setor de polimento, as peças de alumínio passam por um processo de preparação e acabamento superficial, buscando melhorar sua superfície e aparência.
+* CLIENTE e PEDIDO: um cliente pode realizar vários pedidos, e cada pedido pertence a um único cliente.
+* PEDIDO e ITEM_PEDIDO: um pedido pode possuir vários itens, e cada item pertence a um único pedido.
+* MODELO e ITEM_PEDIDO: um modelo pode estar associado a vários itens de pedidos.
+* ACABAMENTO e ITEM_PEDIDO: um acabamento pode estar associado a vários itens de pedidos.
+* ITEM_PEDIDO e LOTE: um item de pedido pode originar vários lotes, e cada lote está associado a um único item.
+* LOTE e PECA: um lote pode conter várias peças, e cada peça pertence a um único lote.
+* PROCESSO e ETAPA_PROCESSO: um processo pode possuir várias etapas, e cada etapa pertence a um processo.
+* PECA e EXECUCAO_ETAPA: uma peça pode possuir vários registros de execução de etapas.
+* ETAPA_PROCESSO e EXECUCAO_ETAPA: uma etapa pode estar presente em vários registros de execução.
+* FUNCIONARIO e EXECUCAO_ETAPA: um funcionário pode ser responsável por várias execuções de etapas.
+* PECA e CONTROLE_QUALIDADE: uma peça pode possuir vários registros de controle de qualidade.
+* FUNCIONARIO e CONTROLE_QUALIDADE: um funcionário pode realizar vários registros de controle de qualidade.
+* EXPEDICAO e ITEM_EXPEDICAO: uma expedição pode conter vários itens.
+* PECA e ITEM_EXPEDICAO: uma peça pode estar associada a um registro de expedição.
 
-Após o polimento, as peças seguem para as próximas etapas do processo.
+Justificativa das alterações
 
-### Enganchamento
+Criação da tabela ITEM_PEDIDO: permite organizar os itens de cada pedido individualmente, relacionando cada item ao modelo e ao acabamento solicitado.
 
-No setor de enganchamento, os funcionários realizam a fixação das peças nos pentes utilizados no processo.
+Criação da tabela EXECUCAO_ETAPA: permite registrar as etapas realizadas em cada peça, identificando a atividade executada, o funcionário responsável e as informações relacionadas à execução.
 
-As peças são presas utilizando recursos como arames, patinhas e alicates, de acordo com o tipo de peça.
+Criação da tabela ITEM_EXPEDICAO: permite registrar individualmente as peças incluídas em cada expedição.
 
-Essa preparação permite que os conjuntos sejam encaminhados para os banhos químicos da anodização.
+Reorganização das atividades produtivas: as atividades de polimento, enganchamento e anodização são representadas por meio das etapas de processo, evitando a duplicação de informações.
 
-### Anodização
+Ajuste do controle de qualidade: os registros de inspeção são relacionados diretamente às peças, possibilitando acompanhar aprovações, reprovações e eventuais necessidades de retrabalho.
 
-Na anodização, as peças passam por um tratamento da superfície do alumínio que proporciona proteção, resistência e acabamento estético.
+Generalização e especialização
 
-A empresa informa que a anodização é utilizada para melhorar a durabilidade, resistência e aparência dos produtos de alumínio.
+O modelo lógico não utiliza generalização ou especialização, pois as entidades identificadas podem ser representadas diretamente por tabelas relacionais, sem necessidade de estruturas adicionais para esse recurso.
 
-### Controle de qualidade
+⸻
 
-Após as etapas de tratamento, as peças são verificadas para identificar possíveis problemas relacionados ao acabamento e à qualidade.
+1.3 Chaves Primárias e Chaves Estrangeiras
 
-Caso seja identificado algum problema, a peça pode ser encaminhada para uma etapa de correção ou retrabalho.
+As chaves primárias identificam exclusivamente cada registro de uma tabela. As chaves estrangeiras estabelecem os relacionamentos entre as tabelas e garantem a integridade referencial.
 
-### Expedição
+Relação de chaves primárias e estrangeiras
 
-Após a aprovação no controle de qualidade, as peças são preparadas para expedição.
+Tabela	Chave Primária (PK)	Chaves Estrangeiras (FK)
+CLIENTE	id_cliente	—
+PEDIDO	id_pedido	id_cliente
+ITEM_PEDIDO	id_item_pedido	id_pedido, id_modelo, id_acabamento
+MODELO	id_modelo	—
+ACABAMENTO	id_acabamento	—
+LOTE	id_lote	id_item_pedido
+PECA	id_peca	id_lote
+PROCESSO	id_processo	—
+ETAPA_PROCESSO	id_etapa	id_processo
+EXECUCAO_ETAPA	id_execucao	id_peca, id_etapa, id_funcionario
+FUNCIONARIO	id_funcionario	—
+CONTROLE_QUALIDADE	id_controle	id_peca, id_funcionario
+EXPEDICAO	id_expedicao	—
+ITEM_EXPEDICAO	id_item_expedicao	id_expedicao, id_peca
 
-Nessa etapa, os produtos são secos, organizados, embalados e encaminhados para envio.
+Integridade referencial
 
----
+A integridade referencial será garantida por meio das restrições de chave estrangeira no MySQL.
 
-## 3.3 Fluxograma dos processos
+Essas restrições impedem que sejam registrados relacionamentos com clientes, pedidos, lotes, peças, processos ou funcionários inexistentes.
 
-O fluxo principal do processo produtivo é:
+As operações de exclusão e atualização deverão respeitar os vínculos existentes, evitando a perda indevida de informações históricas.
 
-**Recebimento → Polimento → Enganchamento → Anodização → Controle de Qualidade → Expedição**
+⸻
 
-Caso seja identificada alguma irregularidade durante o controle de qualidade, a peça pode retornar para uma etapa de retrabalho.
+1.4 Normalização do Banco de Dados
 
-### Fluxograma
+A normalização foi aplicada para organizar as informações, reduzir redundâncias e evitar problemas de inserção, atualização e exclusão de dados.
 
-![Fluxograma dos processos da Alhena Color](Fluxograma.png)
+Primeira Forma Normal (1FN)
 
----
+A primeira forma normal determina que cada campo deve armazenar um único valor, sem listas ou grupos repetidos.
 
-# 4. Requisitos do Sistema
+No modelo proposto, cada registro possui uma identificação própria e os atributos são organizados em campos individuais.
 
-## 4.1 Requisitos Funcionais
+Segunda Forma Normal (2FN)
 
-### RF01 — Cadastro de modelos
+A segunda forma normal exige que todos os atributos não-chave dependam integralmente da chave primária.
 
-O sistema deve permitir cadastrar e consultar os modelos de peças utilizados pela organização.
+As informações foram separadas em tabelas específicas, evitando que dados de clientes, pedidos, modelos, acabamentos e funcionários sejam repetidos desnecessariamente.
 
-### RF02 — Cadastro de peças
+Terceira Forma Normal (3FN)
 
-O sistema deve permitir registrar as peças e relacioná-las aos seus respectivos modelos.
+A terceira forma normal busca eliminar dependências transitivas entre atributos que não são chaves.
 
-### RF03 — Controle de lotes
+As informações foram organizadas de forma que cada tabela armazene dados referentes à sua própria entidade.
 
-O sistema deve permitir cadastrar e consultar lotes de produção.
+Por exemplo, os dados de clientes permanecem na tabela CLIENTE, enquanto as informações dos pedidos ficam na tabela PEDIDO.
 
-### RF04 — Registro de processos
+Resultado da normalização
 
-O sistema deve permitir registrar os processos realizados nas peças e nos lotes.
+A estrutura proposta busca atender às três formas normais, proporcionando maior organização, consistência e facilidade de manutenção dos dados.
 
-### RF05 — Controle de funcionários
+⸻
 
-O sistema deve permitir registrar os funcionários responsáveis pelas atividades.
+1.5 Justificativas Técnicas
 
-### RF06 — Registro do enganchamento
+A estrutura do banco de dados foi definida considerando a necessidade de acompanhar as informações desde o pedido do cliente até a expedição das peças.
 
-O sistema deve permitir registrar as informações relacionadas ao enganchamento das peças.
+As principais decisões técnicas foram:
 
-### RF07 — Controle de qualidade
+* Separação das entidades: permite organizar os dados de acordo com suas responsabilidades.
+* Utilização de chaves primárias: garante a identificação individual dos registros.
+* Utilização de chaves estrangeiras: mantém os relacionamentos entre as tabelas.
+* Criação de ITEM_PEDIDO: permite que um pedido contenha diferentes modelos e acabamentos.
+* Criação de EXECUCAO_ETAPA: possibilita registrar o histórico produtivo de cada peça.
+* Criação de ITEM_EXPEDICAO: permite identificar as peças encaminhadas em cada expedição.
+* Controle de qualidade individual: possibilita acompanhar os resultados das inspeções de cada peça.
+* Normalização: reduz a repetição de informações e facilita a manutenção.
+* MySQL: foi escolhido como sistema gerenciador de banco de dados por oferecer suporte a tabelas relacionais, restrições, consultas e operações de manipulação de dados.
 
-O sistema deve permitir registrar os resultados das verificações de qualidade.
+A liberação para expedição deverá considerar a aprovação registrada no controle de qualidade, garantindo que peças reprovadas não sejam encaminhadas como aprovadas.
 
-### RF08 — Controle de expedição
+⸻
 
-O sistema deve permitir registrar as informações relacionadas à preparação e expedição dos produtos.
+1.6 Proposta de Business Intelligence e Inteligência Artificial
 
-### RF09 — Consulta de informações
+A utilização de Business Intelligence (BI) e Inteligência Artificial (IA) poderá contribuir para a análise dos dados produtivos e para o acompanhamento dos indicadores da empresa.
 
-O sistema deve permitir consultar o histórico das peças, lotes e processos realizados.
+A proposta é utilizar as informações armazenadas no banco de dados para gerar consultas, relatórios e indicadores que auxiliem na tomada de decisões.
 
----
+Indicadores propostos
 
-## 4.2 Requisitos Não Funcionais
+Código	Indicador	Objetivo
+KPI01	Quantidade de pedidos cadastrados	Acompanhar a entrada de pedidos.
+KPI02	Quantidade de lotes registrados	Acompanhar a formação dos lotes.
+KPI03	Quantidade de peças cadastradas	Identificar o volume de peças controladas.
+KPI04	Peças aprovadas no controle de qualidade	Acompanhar os resultados das inspeções.
+KPI05	Peças reprovadas no controle de qualidade	Identificar ocorrências de reprovação.
+KPI06	Quantidade de peças expedidas	Acompanhar os encaminhamentos realizados.
 
-### RNF01 — Segurança
+Consultas gerenciais propostas
 
-O sistema deve restringir o acesso às informações de acordo com o nível de permissão dos usuários.
+Código	Consulta	Objetivo
+G01	Pedidos por cliente	Identificar os pedidos registrados para cada cliente.
+G02	Itens por pedido	Consultar os itens associados a cada pedido.
+G03	Lotes por pedido	Acompanhar a divisão dos pedidos em lotes.
+G04	Peças por lote	Consultar as peças pertencentes a cada lote.
+G05	Peças por acabamento	Analisar a distribuição dos acabamentos solicitados.
+G06	Histórico produtivo das peças	Consultar as etapas executadas em cada peça.
+G07	Atividades por funcionário	Identificar as execuções registradas por funcionário.
+G08	Resultado do controle de qualidade	Consultar aprovações e reprovações.
+G09	Peças pendentes de aprovação	Identificar peças sem aprovação registrada.
+G10	Peças aprovadas para expedição	Identificar peças liberadas pelo controle de qualidade.
+G11	Histórico de expedição	Consultar as peças encaminhadas em cada expedição.
 
-### RNF02 — Usabilidade
+Proposta de utilização de Inteligência Artificial
 
-O sistema deve possuir uma interface simples e fácil de utilizar.
+A Inteligência Artificial poderá ser utilizada futuramente para analisar os dados históricos e identificar padrões que auxiliem no acompanhamento da produção.
 
-### RNF03 — Integridade
+Entre as possibilidades estão:
 
-As informações armazenadas devem manter relacionamentos consistentes entre as entidades.
+* Identificação de etapas com maior quantidade de reprovações.
+* Análise de ocorrências recorrentes no controle de qualidade.
+* Identificação de tendências nos resultados das inspeções.
+* Apoio à elaboração de relatórios gerenciais.
+* Análise de indicadores de produção e expedição.
 
-### RNF04 — Disponibilidade
+A utilização dessas ferramentas dependerá da existência de dados históricos suficientes e confiáveis.
 
-As informações devem estar disponíveis para consulta sempre que necessário.
+Rastreabilidade entre indicadores e consultas SQL
 
-### RNF05 — Escalabilidade
+Os indicadores KPI01 a KPI06 serão construídos a partir das consultas gerenciais correspondentes.
 
-O modelo deve permitir a inclusão de novos processos, modelos, peças e funcionários futuramente.
+As consultas G01 a G11 deverão utilizar as tabelas do modelo lógico, permitindo rastrear a origem das informações apresentadas nos relatórios.
 
----
+⸻
 
-# 5. Regras de Negócio
+2. Modelo Lógico
 
-### RN01
+O modelo lógico representa a organização das tabelas, seus atributos, chaves primárias e chaves estrangeiras.
 
-Cada peça deve estar associada a um modelo.
+O diagrama deverá ser elaborado utilizando a notação do brModelo e deverá apresentar os relacionamentos entre as 14 tabelas do banco de dados.
 
-### RN02
+Tabelas do modelo lógico
 
-Um lote pode possuir diversas peças.
+* CLIENTE
+* PEDIDO
+* ITEM_PEDIDO
+* MODELO
+* ACABAMENTO
+* LOTE
+* PECA
+* PROCESSO
+* ETAPA_PROCESSO
+* EXECUCAO_ETAPA
+* FUNCIONARIO
+* CONTROLE_QUALIDADE
+* EXPEDICAO
+* ITEM_EXPEDICAO
 
-### RN03
+Relacionamentos principais
 
-Uma peça pode passar por diferentes etapas do processo produtivo.
+O modelo deverá representar os relacionamentos entre clientes e pedidos, pedidos e itens, itens e lotes, lotes e peças, processos e etapas, peças e execuções, funcionários e atividades, peças e controle de qualidade, além das relações entre expedições e peças.
 
-### RN04
+O diagrama lógico deverá manter correspondência com as chaves apresentadas na seção 1.3 e com a estrutura implementada no script SQL.
 
-O processo de produção deve respeitar a sequência definida pela organização.
+Arquivo previsto: Modelo-Logico-Alhena-Color.png
 
-### RN05
+⸻
 
-As peças devem ser preparadas no enganchamento antes de serem encaminhadas para a anodização.
+3. Implementação do Banco de Dados em MySQL
 
-### RN06
+A implementação deverá utilizar o MySQL como sistema gerenciador de banco de dados.
 
-O controle de qualidade deve ser realizado após as etapas de tratamento previstas no processo.
+O script SQL deverá contemplar a criação do banco, das tabelas, das chaves primárias, das chaves estrangeiras, das restrições de integridade e dos registros de exemplo.
 
-### RN07
+3.1 Estrutura do banco
 
-Peças que não forem aprovadas no controle de qualidade podem ser encaminhadas para retrabalho.
+O banco de dados será denominado:
 
-### RN08
+alhena_color
 
-Somente peças aprovadas devem ser encaminhadas para a expedição.
+3.2 Estrutura das tabelas
 
-### RN09
+O script deverá criar as 14 tabelas definidas no modelo lógico:
 
-Os funcionários podem ser responsáveis pela execução de determinadas atividades do processo.
+1. CLIENTE
+2. PEDIDO
+3. ITEM_PEDIDO
+4. MODELO
+5. ACABAMENTO
+6. LOTE
+7. PECA
+8. PROCESSO
+9. ETAPA_PROCESSO
+10. EXECUCAO_ETAPA
+11. FUNCIONARIO
+12. CONTROLE_QUALIDADE
+13. EXPEDICAO
+14. ITEM_EXPEDICAO
 
----
+3.3 Restrições e integridade
 
-# 6. Dicionário de Dados Conceitual (Preliminar)
+A implementação deverá utilizar:
 
-## CLIENTE
+* PRIMARY KEY para identificação dos registros.
+* FOREIGN KEY para relacionamentos entre tabelas.
+* NOT NULL para campos obrigatórios.
+* UNIQUE para informações que não podem ser repetidas.
+* CHECK para validações de valores permitidos, quando aplicável.
+* Tipos de dados adequados para cada atributo.
 
-**Definição:** Representa o cliente relacionado aos pedidos ou produtos da organização.
+3.4 Inserção de dados
 
-**Principais atributos:**
-- id_cliente
-- nome
-- telefone
-- e-mail
+O banco deverá possuir dados fictícios para demonstrar o funcionamento das operações.
 
-**Regra associada:** Um cliente pode estar relacionado a um ou mais pedidos.
+Os registros utilizados na apresentação e nos testes deverão ser identificados como dados acadêmicos fictícios, sem representar informações reais de clientes ou da produção da empresa.
 
----
+A massa de dados deverá contemplar diferentes clientes, pedidos, modelos, acabamentos, lotes, peças, funcionários, execuções, resultados de qualidade e expedições.
 
-## PEDIDO
+3.5 Operações SQL
 
-**Definição:** Representa uma solicitação de produção ou fornecimento realizada por um cliente.
+O script deverá demonstrar:
 
-**Principais atributos:**
-- id_pedido
-- data_pedido
-- status
-- id_cliente
+* Criação do banco de dados.
+* Criação das tabelas.
+* Inserção de registros.
+* Consultas utilizando SELECT.
+* Consultas utilizando JOIN.
+* Atualização de registros utilizando UPDATE.
+* Exclusão controlada utilizando DELETE.
+* Consultas gerenciais G01 a G11.
+* Consultas de auditoria A01 em diante.
 
-**Regra associada:** Um pedido pertence a um cliente e pode possuir diferentes itens.
+3.6 Consultas de auditoria
 
----
+As consultas de auditoria deverão permitir verificar a consistência das informações, incluindo:
 
-## LOTE
+* Registros sem relacionamento válido.
+* Peças sem execução de etapas.
+* Peças sem controle de qualidade.
+* Peças reprovadas.
+* Peças sem aprovação para expedição.
+* Registros de expedição e suas respectivas peças.
 
-**Definição:** Representa um conjunto de peças processadas em uma mesma ordem ou etapa de produção.
+A implementação deverá impedir que peças sem aprovação sejam liberadas para expedição.
 
-**Principais atributos:**
-- id_lote
-- data_entrada
-- quantidade
-- status
+Arquivo previsto: alhena_color.sql
 
-**Regra associada:** Um lote pode conter várias peças.
+⸻
 
----
+4. Dicionário de Dados
 
-## MODELO
+O dicionário de dados deverá apresentar a descrição das tabelas e de seus respectivos campos.
 
-**Definição:** Representa o modelo ou tipo de peça produzido.
+Para cada atributo deverão ser identificados:
 
-**Principais atributos:**
-- id_modelo
-- codigo_modelo
-- descricao
-- dimensao
+* Nome do campo.
+* Tipo de dado.
+* Tamanho, quando aplicável.
+* Chave primária ou estrangeira.
+* Obrigatoriedade.
+* Descrição da informação armazenada.
 
-**Regra associada:** Um modelo pode estar associado a várias peças.
+O dicionário deverá manter correspondência com o modelo lógico e com o script SQL.
 
----
+Arquivo previsto: Dicionario-de-Dados-Alhena-Color.html
 
-## PEÇA
+⸻
 
-**Definição:** Representa uma peça de alumínio submetida ao processo produtivo.
+5. Evidências e Organização do Repositório
 
-**Principais atributos:**
-- id_peca
-- codigo_peca
-- descricao
-- dimensao
-- id_modelo
-- id_lote
+O repositório deverá reunir os documentos, diagramas e arquivos necessários para demonstrar o desenvolvimento do projeto.
 
-**Regra associada:** Cada peça deve estar associada a um modelo e a um lote.
+Estrutura proposta
 
----
+Alhena-Color/
+│
+├── README.md
+│
+├── DER-Alhena-Color.png
+│
+├── Modelo-Logico-Alhena-Color.png
+│
+├── Fluxograma-Alhena-Color.jpeg
+│
+├── Dicionario-de-Dados-Alhena-Color.html
+│
+├── alhena_color.sql
+│
+├── Levantamento-de-Campo.md
+│
+├── Evidencias/
+│   ├── evidencia-01.png
+│   ├── evidencia-02.png
+│   └── evidencia-03.png
+│
+└── Apresentacao/
+    └── Apresentacao-Entrega-2.pdf
 
-## POLIMENTO
+Evidências do desenvolvimento
 
-**Definição:** Representa a etapa de preparação e acabamento superficial realizada nas peças.
+As evidências deverão demonstrar as etapas de desenvolvimento do projeto, incluindo:
 
-**Principais atributos:**
-- id_polimento
-- data_inicio
-- data_fim
-- observacao
-- status
+* Diagramas elaborados.
+* Estrutura das tabelas.
+* Relacionamentos do banco de dados.
+* Execução do script SQL.
+* Resultados das consultas.
+* Organização dos arquivos no GitHub.
 
-**Regra associada:** As peças podem passar pelo processo de polimento antes das etapas seguintes.
+As imagens deverão corresponder às atividades efetivamente realizadas pela equipe.
 
----
+Histórico de desenvolvimento
 
-## ENGANCHAMENTO
+O histórico de commits do GitHub deverá demonstrar a evolução do projeto, identificando as alterações realizadas ao longo do desenvolvimento.
 
-**Definição:** Representa a etapa em que as peças são fixadas nos pentes para serem encaminhadas aos processos de tratamento.
+⸻
 
-**Principais atributos:**
-- id_enganchamento
-- data
-- pente
-- quantidade
-- observacao
+6. Utilização de Inteligência Artificial
 
-**Regra associada:** As peças devem ser preparadas e fixadas adequadamente antes da anodização.
+A Inteligência Artificial foi utilizada como ferramenta de apoio ao desenvolvimento do projeto, auxiliando na organização das informações, revisão textual, estruturação da modelagem e elaboração de propostas para consultas SQL.
 
----
+As ferramentas de IA podem auxiliar na identificação de inconsistências e na revisão técnica, mas as decisões finais devem ser analisadas e validadas pelos integrantes da equipe.
 
-## DISPOSITIVO
+Aplicações de IA no projeto
 
-**Definição:** Representa recursos utilizados para auxiliar na preparação e movimentação das peças no processo.
+* Organização e revisão da documentação.
+* Apoio à identificação de relacionamentos entre entidades.
+* Revisão das chaves primárias e estrangeiras.
+* Apoio à normalização do banco de dados.
+* Elaboração e revisão de consultas SQL.
+* Organização dos indicadores gerenciais.
+* Apoio à preparação da apresentação.
 
-**Principais atributos:**
-- id_dispositivo
-- tipo
-- descricao
-- status
+Os conteúdos gerados com auxílio de IA deverão ser revisados e testados antes de serem considerados definitivos.
 
-**Regra associada:** Os dispositivos devem estar disponíveis e adequados para utilização no processo.
+⸻
 
----
+7. Considerações Finais
 
-## ANODIZAÇÃO
+O desenvolvimento deste projeto permitiu aplicar conceitos de modelagem de dados, normalização, relacionamentos, integridade referencial e implementação de banco de dados relacional.
 
-**Definição:** Representa o processo de tratamento da superfície do alumínio, incluindo acabamento e coloração.
+A proposta foi estruturada considerando os processos produtivos da Alhena Color Anodização, desde o registro dos pedidos até o controle de qualidade e a expedição das peças.
 
-**Principais atributos:**
-- id_anodizacao
-- data
-- cor
-- acabamento
-- status
-- observacao
+A organização das informações em tabelas relacionadas permite construir uma estrutura capaz de armazenar dados de maneira consistente e facilitar consultas sobre as atividades realizadas.
 
-**Regra associada:** As peças devem estar preparadas antes de serem encaminhadas para a anodização.
+Além da implementação técnica, o projeto demonstra a importância do planejamento e da organização dos dados para apoiar o acompanhamento dos processos e a tomada de decisões.
 
----
+A utilização de consultas gerenciais e indicadores também permite explorar os dados armazenados e propor melhorias futuras no acompanhamento das atividades da empresa.
 
-## PROCESSO
+⸻
 
-**Definição:** Representa um processo realizado durante a produção.
+Projeto acadêmico — Alhena Color Anodização
 
-**Principais atributos:**
-- id_processo
-- nome
-- descricao
-- status
+Entrega 2 — Banco de Dados
 
-**Regra associada:** Um processo pode possuir diferentes etapas.
-
----
-
-## ETAPA_PROCESSO
-
-**Definição:** Representa uma etapa específica de um processo produtivo.
-
-**Principais atributos:**
-- id_etapa
-- nome
-- ordem
-- descricao
-- status
-
-**Regra associada:** As etapas devem seguir a ordem definida para o processo.
-
----
-
-## ACABAMENTO
-
-**Definição:** Representa o tipo de acabamento aplicado à peça.
-
-**Principais atributos:**
-- id_acabamento
-- descricao
-- cor
-- tipo
-
-**Regra associada:** Um acabamento pode estar relacionado a diferentes peças.
-
----
-
-## FUNCIONÁRIO
-
-**Definição:** Representa os funcionários envolvidos na execução dos processos.
-
-**Principais atributos:**
-- id_funcionario
-- nome
-- cargo
-- setor
-
-**Regra associada:** Um funcionário pode executar ou acompanhar diferentes processos.
-
----
-
-## CONTROLE_QUALIDADE
-
-**Definição:** Representa o registro da avaliação da qualidade das peças após o processo produtivo.
-
-**Principais atributos:**
-- id_controle
-- data
-- resultado
-- observacao
-- status
-
-**Regra associada:** O resultado da inspeção deve indicar se a peça foi aprovada ou necessita de retrabalho.
-
----
-
-## EXPEDIÇÃO
-
-**Definição:** Representa a etapa final de preparação e envio dos produtos.
-
-**Principais atributos:**
-- id_expedicao
-- data
-- quantidade
-- status
-- observacao
-
-**Regra associada:** Somente produtos liberados pelo controle de qualidade devem ser encaminhados para expedição.
-
----
-
-# 7. Modelagem Conceitual
-
-A modelagem conceitual foi desenvolvida com o objetivo de representar as principais informações envolvidas no processo produtivo da Alhena Color.
-
-As entidades foram definidas considerando os principais elementos observados durante o levantamento dos processos.
-
-### Principais entidades
-
-- Cliente
-- Pedido
-- Lote
-- Modelo
-- Peça
-- Polimento
-- Enganchamento
-- Dispositivo
-- Anodização
-- Processo
-- Etapa_Processo
-- Acabamento
-- Funcionário
-- Controle_Qualidade
-- Expedição
-
-O relacionamento entre essas entidades permite representar o caminho das peças desde sua entrada no processo produtivo até a expedição.
-
----
-
-# 8. Diagrama Entidade-Relacionamento (DER)
-
-O DER apresenta as entidades, atributos, relacionamentos e cardinalidades definidos para representar o funcionamento da organização.
-
-O modelo foi estruturado buscando manter a organização das informações e permitir futuras ampliações do sistema.
-
-### DER da Alhena Color
-
-![Diagrama Entidade-Relacionamento da Alhena Color](DER.png)
-
----
-
-# 9. Justificativa Técnica
-
-A utilização de um modelo entidade-relacionamento permite organizar os dados da organização de maneira estruturada.
-
-A separação das informações em diferentes entidades evita a concentração de muitos dados em uma única estrutura e facilita a manutenção e consulta das informações.
-
-As entidades relacionadas aos processos produtivos permitem acompanhar as diferentes etapas pelas quais uma peça pode passar.
-
-A utilização de identificadores próprios para as entidades facilita a identificação dos registros e seus relacionamentos.
-
-As cardinalidades foram definidas de acordo com o funcionamento esperado dos processos, buscando representar a relação entre modelos, peças, lotes, processos, funcionários e controle de qualidade.
-
-O modelo também foi pensado de forma que possa ser ampliado futuramente com novos processos, setores e informações.
-
----
-
-# 10. Uso de Inteligência Artificial
-
-Durante o desenvolvimento deste projeto foi utilizada Inteligência Artificial como ferramenta de apoio.
-
-### Ferramenta utilizada
-
-**ChatGPT — OpenAI**
-
-### Etapas em que a IA foi utilizada
-
-A ferramenta foi utilizada como apoio para:
-
-- Organização das informações;
-- Estruturação do README;
-- Sugestões para requisitos funcionais e não funcionais;
-- Organização das regras de negócio;
-- Apoio na identificação de entidades e atributos;
-- Apoio na elaboração da modelagem conceitual;
-- Organização e descrição do DER;
-- Revisão e melhoria da apresentação do trabalho.
-
-### Exemplos de prompts utilizados
-
-> "Monte o DER completo da Alhena Color, com as entidades, atributos, relacionamentos e cardinalidades."
-
-> "Adicione ao DER os setores de polimento, enganchamento, anodização e expedição."
-
-> "Crie um fluxograma representando o processo produtivo da Alhena Color."
-
-> "Organize as informações do trabalho em um README para GitHub."
-
-### Validação das informações
-
-As sugestões fornecidas pela Inteligência Artificial foram analisadas e adaptadas de acordo com as informações levantadas sobre os processos da organização.
-
-As informações relacionadas aos processos reais da empresa foram consideradas a partir do levantamento realizado pelo grupo.
-
-A IA foi utilizada como ferramenta de apoio, não substituindo a análise e a validação das informações pelos integrantes do grupo.
-
----
-
-# 11. Conclusão
-
-O desenvolvimento deste projeto possibilitou compreender como os processos de uma organização podem ser analisados e transformados em uma estrutura de dados organizada.
-
-A partir do levantamento realizado na Alhena Color, foram identificadas etapas importantes do processo produtivo, como polimento, enganchamento, anodização, controle de qualidade e expedição.
-
-A modelagem conceitual desenvolvida por meio do DER permite representar as principais entidades e seus relacionamentos, proporcionando uma base para uma futura implementação de banco de dados.
-
-Além disso, o fluxograma facilita a visualização da sequência dos processos e contribui para uma melhor compreensão do funcionamento da organização.
-
----
-
-# 12. Referências
-
-- ALHENA COLOR. Empresa. Disponível em: https://www.alhenacolor.com.br/empresa
-- ALHENA COLOR. Contato. Disponível em: https://www.alhenacolor.com.br/contato
-- ALHENA COLOR. Anodização de Alumínio. Disponível em: https://www.alhenacolor.com.br/informacoes/anodizacao-de-aluminio
-- ALHENA COLOR. Tratamento de Superfície de Alumínio. Disponível em: https://www.alhenacolor.com.br/informacoes/tratamento-de-superficie-de-aluminio
-- Material didático da disciplina de Modelagem e Banco de Dados — UNICID.
-- Informações levantadas durante a pesquisa e observação dos processos da organização.
-- OpenAI. ChatGPT. Ferramenta de Inteligência Artificial utilizada como apoio ao desenvolvimento do projeto.
